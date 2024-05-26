@@ -3,5 +3,11 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+# puts "🌱 Creating companies ..."
+# 10.times do 
+#     password = Faker::Internet.password(min_length: 8, max_length: 16, mix_case: true, special_characters: false)
+#     Company.create([{ company_name: Faker::Company.name }, { email: Faker::Internet.email, }, {password: password}, {password_confirmation: password}])
+# end
+# puts "✅ Created 10 companies ✨"
+
 #   Character.create(name: "Luke", movie: movies.first)
