@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get '/company/:id', to: 'companies#show'
   patch '/company/:id', to: 'companies#update'
   delete '/company/:id', to: 'companies#destroy'
-
+  
+  get '/job_seeker', to: 'job_seekers#index'
+  get '/job_seeker/:id', to: 'job_seekers#show'
 end
