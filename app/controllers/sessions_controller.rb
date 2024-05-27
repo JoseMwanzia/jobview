@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     before_action :authorize, except: [:create, :create_seeker]
 
-    # get '/me' "CREATING SESSIONS"
+    # get '/me_company' "CREATING SESSIONS"
     def create
         company = Company.find_by(email: params[:email])
         if company&.authenticate(params[:password])
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         end
     end
 
-     # get '/sekeer' "CREATING SESSIONS"
+     # get '/me_sekeer' "CREATING SESSIONS"
     def create_seeker
         job_seeker = JobSeeker.find_by(email: params[:email])
         if job_seeker&.authenticate(params[:password])
