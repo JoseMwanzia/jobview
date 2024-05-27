@@ -1,5 +1,7 @@
 class Company < ApplicationRecord
     has_secure_password
-    validates :company_name, :email, :password, :password_confirmation, :description, :image_url, :job_title, :job_description, presence: true
+    validates :company_name, :email, :password, :password_confirmation, presence: true
+    validates :company_name, :email, uniqueness: true
     validates :password, length: { in: 8..16 }
+    has_many :job_seekers
 end
