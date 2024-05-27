@@ -1,4 +1,5 @@
 class JobSeekersController < ApplicationController
+    before_action :authorize, except: :create
 
     # get '/job_seeker'
     def index
@@ -11,5 +12,23 @@ class JobSeekersController < ApplicationController
         jobseeker = JobSeeker.find(params[:id])
         render json: job_seeker, status: 200
     end
-    
+
+    # post '/job_seeker'
+    def create
+        job_seeker = JobSeeker.create!(registration_params)
+        session[:job_seeker_id] = job_seeker.id
+        render json: job_seeker, status: 201
+    end
+
+    private
+
+    def registration_params
+        params.permit(:first_name, :sur_name, :last_name, :email, :password, :password_confirmation)
+    end
+
+    def authorize
+        @current_user = JobSeeker.find_by(id: session[:job_seeker_id])
+        render json: {errors: ["Not Logged In"]}, status: 422 unless @current_user
+    end
+
 end
