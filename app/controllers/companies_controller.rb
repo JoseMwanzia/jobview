@@ -9,8 +9,8 @@ class CompaniesController < ApplicationController
 
     # get '/company/:id'
     def show
-        company = Company.find(params[:id])
-        render json: company, status: :ok
+        # company = Company.find(params[:id])
+        render json: @company_user, status: :ok
     end
 
     # post '/company'
