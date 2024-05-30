@@ -45,16 +45,14 @@ function Registration() {
             } else  {
               window.location.href = "/login";
             }
-          
-
         }
         catch (error) {setErrors(error);}
       };
 
   return (
-    <div className="min-h-screen d-flex flex-wrap flex-col items-center justify-center bg2">
+    <div className="d-flex flex-wrap flex-col items-center justify-content-center bg2">
         <div className="w-full max-w-m bg-[#9bbf7f] p-8 rounded-lg shadow-md">
-            <form onSubmit={handleSubmit} className='text-white'>
+            <form onSubmit={handleSubmit} className='text-dark login-form'>
                 <div className="container">
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
@@ -93,7 +91,7 @@ function Registration() {
 
                     <div className="clearfix">
                     {/* <button type="button" class="cancelbtn">Cancel</button> */}
-                    <button type="submit" className="signupbtn">Sign Up</button>
+                    <button type="submit" className="signupbtn butns">Sign Up</button>
                     {/* <Logout/> */}
                     </div>
                 </div>

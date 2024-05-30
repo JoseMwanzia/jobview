@@ -8,11 +8,14 @@ function Logout() {
         fetch("/logout", {
             method: "DELETE"
         })
-        .then(res => {if (res.ok) {console.log(null)}})
+        .then(res => {if (res.ok) {
+            console.log(null)
+            return window.location.href = '/login'
+        }})
     }
 
   return (
-    <button onClick={handleLogout}>Logout</button>
+    <button className='col-6' onClick={handleLogout}>Logout</button>
   )
 }
 

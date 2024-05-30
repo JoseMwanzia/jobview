@@ -1,10 +1,12 @@
 /* Bordered form */
-form {
+.login-form {
   border: 3px solid #f1f1f1;
+  /* display: ; */
+  align-self: center;
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -14,18 +16,18 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.butns {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* Add a hover effect for buttons */
-button:hover {
+.butns:hover {
   opacity: 0.8;
 }
 
@@ -37,7 +39,7 @@ button:hover {
 }
 
 /* Center the avatar image inside this container */
-.imgcontainer {
+.imgcontainer-avatar {
   text-align: center;
   margin: 24px 0 12px 0;
 }
@@ -49,7 +51,7 @@ img.avatar {
 }
 
 /* Add padding to containers */
-.container {
+.log-container {
   padding: 16px;
 }
 
@@ -91,7 +93,7 @@ hr {
 }
 
 /* Set a style for all buttons */
-button {
+.butns {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -102,7 +104,7 @@ button {
   opacity: 0.9;
 }
 
-button:hover {
+.butns:hover {
   opacity:1;
 }
 
@@ -118,10 +120,6 @@ button:hover {
   width: 50%;
 }
 
-/* Add padding to container elements */
-.container {
-  padding: 16px;
-}
 
 /* Clear floats */
 .clearfix::after {
