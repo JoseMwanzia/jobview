@@ -25,7 +25,7 @@ function Login() {
         .then(res => res.json())
         .then(data => {
             if (data.errors === undefined) {
-                return window.location.href = "/companyDashboard";
+              return window.location.href = "/companyDashboard";
             } 
             setErrors(data.errors);
             setUserData(data)
