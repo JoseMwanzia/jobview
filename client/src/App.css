@@ -135,3 +135,33 @@ hr {
   }
 }
 
+.group-search {
+  position: relative;
+  top: -20px;
+  background-color: #ffffff;
+}
+
+.landingLogo {
+  padding-top: 60px;
+  padding-bottom: 73px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(19, 25, 88, 0.4)), url(./assets/slider2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media screen and (max-width: 767px) {
+  .landingLogo{
+    height: 70vh;
+  }
+  .group-search {
+    position: relative;
+    top: -200px;
+  }
+  .group-search-btn{
+    width: 100%;
+  }
+  #segmented-button-dropdown-2{
+    width: 72%;
+  }
+}
