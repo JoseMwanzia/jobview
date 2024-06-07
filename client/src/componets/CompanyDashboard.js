@@ -11,12 +11,14 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import LandingPage from './LandingPage';
+import JobCard from './JobCard';
 
 
 function CompanyDashboard() {
+
   return (
     <div style={{height: '1000px'}}>
-      <Navbar expand="lg" collapseOnSelect sticky='top' bg="dark" data-bs-theme="dark"  className="bg-body-tertiary">
+      <Navbar expand="lg" collapseOnSelect fixed='top' bg="dark" data-bs-theme="dark"  className="bg-body-tertiary">
         <Container fluid style={{width: "100%"}}>
 
           <Col xs={6} md={4}>
@@ -83,6 +85,7 @@ function CompanyDashboard() {
       </Navbar>
 
       <LandingPage/>
+      <JobCard />
     </div>
   )
 }
