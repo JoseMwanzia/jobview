@@ -1,7 +1,3 @@
-import landingLogo from '../assets/slider2.png';
-import Col from 'react-bootstrap/Col';
-// import Row from 'react-bootstrap/Row';
-
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
