@@ -16,18 +16,21 @@ function App() {
     })
   }, [])
 
-  if (!companyUser) return <Login/>
-
-  return (
-    <div className='App'>
-      <Routes>
-        {/* <Route path='/' element={</>}/> */}
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/registration' element={<Registration/> }/>
-        <Route path='/companyDashboard' element={<CompanyDashboard companyUser={companyUser}/>}/>
-      </Routes>
-    </div>
-  );
+  if (!companyUser) {
+    return <Login/>
+  }
+  else {
+    return (
+      <div className='App'>
+        <Routes>
+          {/* <Route path='/' element={</>}/> */}
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/registration' element={<Registration/> }/>
+          <Route path='/companyDashboard' element={<CompanyDashboard companyUser={companyUser}/>}/>
+        </Routes>
+      </div>
+    )
+  };
 }
 
 export default App;
