@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-    before_action :authorize_company, except: [:create, :create_seeker]
+    before_action :authorize_company, except: [:create, :create_seeker, :destroy_jobseeker]
+    before_action :authorize_jobseeker, except: [:create, :create_seeker, :destroy_company]
 
     # get '/me_company' "CREATING SESSIONS"
     def create
@@ -28,10 +29,21 @@ class SessionsController < ApplicationController
         head :no_content
     end
 
+    # delete '/logout_jobseeker'
+    def destroy_jobseeker
+        session.delete :job_seeker_id
+        head :no_content
+    end
+
     private
 
     def authorize_company
         @company_user = Company.find_by(id: session[:company_id])
         render json: { errors: ["Not Logged In"] }, status: 422 unless @company_user
+    end
+
+    def authorize_jobseeker
+        @job_seeker_user = JobSeeker.find_by(id: session[:job_seeker_id])
+        render json: { errors: ["Not Logged In"] }, status: 422 unless @job_seeker_user
     end
 end
