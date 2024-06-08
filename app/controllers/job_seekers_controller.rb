@@ -1,6 +1,12 @@
 class JobSeekersController < ApplicationController
     before_action :authorize, except: :create
 
+    # get '/allCompanies'
+    def companies
+        companies = Company.all
+        render json: companies, status: 200
+    end
+
     # get '/job_seeker'
     def index
         jobseekers = JobSeeker.all
@@ -9,8 +15,8 @@ class JobSeekersController < ApplicationController
 
     # get '/job_seeker/:id'
     def show
-        jobseeker = JobSeeker.find(params[:id])
-        render json: job_seeker, status: 200
+        # jobseeker = JobSeeker.find(params[:id])
+        render json: @current_user, status: 200
     end
 
     # post '/job_seeker'
