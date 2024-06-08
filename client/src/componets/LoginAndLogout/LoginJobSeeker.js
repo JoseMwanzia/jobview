@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import Logo from "../assets/logo4.png";
 import avatar from "../../assets/img_avatar2.png";
 
-function Login() {
+function LoginJobSeeker() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [userData, setUserData] = useState([])
   const [errors, setErrors] = useState('');
@@ -15,7 +15,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log("email:", formData.email, "password:", formData.password);
-    await fetch("/me_company", {
+    await fetch("/me_sekeer", {
       method: "POST",
       headers: {
       "Content-Type": "application/json"
@@ -25,7 +25,7 @@ function Login() {
     .then(res => res.json())
     .then(data => {
       if (data.errors === undefined) {
-        return window.location.href = "/companyDashboard";
+        return window.location.href = "/jobSeekerDashboard";
       } 
       setErrors(data.errors);
       setUserData(data)
@@ -39,7 +39,7 @@ function Login() {
     <div className="d-flex flex-wrap flex-col items-center justify-content-center bg">
       <div className="w-full max-w-md bg-[#9bbf7f] p-8 rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-yellow-500 text-center mb-6">
-          Company Login
+          Job Seeker Login
         </h1>
 
         <form onSubmit={handleSubmit} className="login-form">
@@ -74,7 +74,7 @@ function Login() {
 
                 <p className="col-md-6 text-warning font-weight-bold">{errors}</p>
                 <button type="submit" className="col-3 butns">
-                    Login
+                    Job Seeker Login
                 </button>
                 <label>
                 {/* <input type="checkbox" checked="checked" name="remember"/> Remember me */}
@@ -106,4 +106,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginJobSeeker;
