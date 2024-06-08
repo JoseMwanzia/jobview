@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Logout from "../Logout";
+import Logout from "../LoginAndLogout/Logout";
 
 function Registration() {
     
