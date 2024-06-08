@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Logo from "../assets/logo4.png";
-import avatar from "../assets/img_avatar2.png";
+import avatar from "../../assets/img_avatar2.png";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -13,27 +13,27 @@ function Login() {
   };
 
   const handleSubmit = async (e) => {
-        e.preventDefault();
-        // console.log("email:", formData.email, "password:", formData.password);
-        await fetch("/me_company", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.errors === undefined) {
-              return window.location.href = "/companyDashboard";
-            } 
-            setErrors(data.errors);
-            setUserData(data)
-        })
-        .catch (error => {
-            console.log('Error:', error);
-            })
-    };
+    e.preventDefault();
+    // console.log("email:", formData.email, "password:", formData.password);
+    await fetch("/me_company", {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.errors === undefined) {
+        return window.location.href = "/companyDashboard";
+      } 
+      setErrors(data.errors);
+      setUserData(data)
+    })
+    .catch (error => {
+      console.log('Error:', error);
+    })
+  };
 
   return (
     <div className="d-flex flex-wrap flex-col items-center justify-content-center bg">
