@@ -38,10 +38,10 @@ function Registration() {
           console.log( companyData.company_name, companyData.email, companyData.password, companyData.password_confirmation );
           const data = await response.json();
           console.log(data.company_name);
-          setdata(data);
+          // setdata(data);
 
           if (data.id === window.sessionData) {
-              return window.location.href = "/candidates";
+              return window.location.href = "/companyDashboard";
             } else  {
               window.location.href = "/login";
             }
@@ -73,7 +73,8 @@ function Registration() {
 
                     <div className="d-flex flex-wrap">
 
-                        <p className="col-12">Are you seekings a <Link to="/">Job instead</Link>?</p>
+                        <p className="col-12">Are you seekings a <Link to="/loginJobSeeker">Job instead</Link>?</p>
+                        <p className="col-12">Already have an account <Link to="/login">Login</Link>?</p>
 
                         {/* <label className="col-12">Are you Employing or seekings a Job</label>
                         <select id="registrationType" name="registrationType" value={companyData.value} onChange={handleInputChange} className="m-3">

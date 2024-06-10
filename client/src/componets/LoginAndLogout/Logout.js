@@ -1,16 +1,19 @@
 import React from 'react'
 
-function Logout() {
+function Logout({myCompany, jobSeeker}) {
 
     const handleLogout = (e) => {
         e.preventDefault();
         // console.log("email:", formData.email, "password:", formData.password);
-        fetch("/logout", {
-            method: "DELETE"
+        const api = myCompany ? "/logout" : "/logout_jobseeker"
+
+        fetch(api, {
+          method: "DELETE"
         })
-        .then(res => {if (res.ok) {
-            console.log(null)
-            return window.location.href = '/login'
+        .then(res =>{if (res.ok) {
+          // api === "/logout" ? window.location.href = '/login' : window.location.href = '/loginJobSeeker'
+          window.location.href = '/'
+          console.log("Loged Out Successfully!")
         }})
     }
 
