@@ -20,13 +20,17 @@ class ApplicationsController < ApplicationController
       def create
         job_seeker = JobSeeker.find(application_params[:job_seeker_id])
         company = Company.find(params[:company_id])
-        application = job_seeker.applications.create!(company: company)
-        render json: application, status: :created
+        application = job_seeker.applications.new(application_params.except(:resume))
+        application.company = company
     
-        # if application
-        # else
-        #   render json: application.errors, status: :unprocessable_entity
-        # end
+        if application.save
+          if application_params[:resume]
+            application.resume.attach(application_params[:resume])
+          end
+          render json: application, status: :created
+        else
+          render json: application.errors, status: :unprocessable_entity
+        end
       end
     
       def destroy
@@ -38,6 +42,6 @@ class ApplicationsController < ApplicationController
       private
     
       def application_params
-        params.require(:application).permit(:job_seeker_id)
+        params.require(:application).permit(:job_seeker_id, :company_id, :name, :email, :address, :phone, :resume)
       end
 end
