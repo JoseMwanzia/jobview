@@ -44,7 +44,7 @@ function Login() {
 
         <form onSubmit={handleSubmit} className="login-form">
             <div className="imgcontainer-avatar">
-                <img src={avatar} alt="Avatar" className="avatar" style={{width: '10%', AspectRatio: 5/4, ObjectFit: 'contain'}}/>
+                {/* <img src={avatar} alt="Avatar" className="avatar" style={{width: '10%', AspectRatio: 5/4, ObjectFit: 'contain'}}/> */}
             </div>
 
             <div className="container">

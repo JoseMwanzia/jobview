@@ -39,7 +39,7 @@ function LoginJobSeeker() {
     <div className="d-flex flex-wrap flex-col items-center justify-content-center bg">
       <div className="w-full max-w-md bg-[#9bbf7f] p-8 rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-yellow-500 text-center mb-6">
-          Job Seeker Login
+          Login to Find your Dream Job
         </h1>
 
         <form onSubmit={handleSubmit} className="login-form">
@@ -89,7 +89,7 @@ function LoginJobSeeker() {
         <div className="mt-4 ms-2 text-start">
           <p>
             Don't have an account?{" "}
-            <a href="/registration" className="font-semibold hover:underline text-primary">
+            <a href="/jobseekerReg" className="font-semibold hover:underline text-primary">
               Register
             </a>
           </p>
