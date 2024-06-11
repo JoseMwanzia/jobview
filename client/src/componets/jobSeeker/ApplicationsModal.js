@@ -5,8 +5,8 @@ import Modal from 'react-bootstrap/Modal';
 
 function ApplicationModal({ company, jobSeeker }) {
   const fileInputRef = useRef(null);
-
-  const [fileInput, setFileInput] = useState(null);
+  // const [fileInput, setFileInput] = useState(null);
+  const [resumeData, setResumeData] = useState({});
 
   const [application, setApplication] = useState({
     name: '', email: '', address: '', phone: '', resume: ''
@@ -29,7 +29,7 @@ function ApplicationModal({ company, jobSeeker }) {
     // Ensure the file input is not null
     if (fileInputRef.current && fileInputRef.current.files[0]) {
       formPayload.append('application[resume]', fileInputRef.current.files[0]);
-      console.log("Resume file appended", fileInputRef.current.files[0]);
+      console.log("Resume file appended:", fileInputRef.current.files[0].name);
     }else {
       console.error('NO RESUME file uploaded!');
     }
