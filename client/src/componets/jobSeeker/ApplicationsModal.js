@@ -49,13 +49,21 @@ function ApplicationModal({ company, jobSeeker }) {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        if (data.id > 0 ){
+          console.log(data.id);
+          setResumeData(data)
+          // setTimeout(() => {
+          //   handleClose()
+          // }, 3000);
+        }
         // handleClose(); // Close modal on success
       })
       .catch(error => {
         console.error('Error submitting application:', error);
-      });
+      })
+      .finally(setLoading(false))
   };
+
 
   return (
     <>
