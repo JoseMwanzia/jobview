@@ -143,9 +143,16 @@ function ApplicationModal({ company, jobSeeker }) {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button type="submit" variant="primary">
-                Submit
-              </Button>
+
+              {jobSeekersWhoAppliedForComp.includes(foundEmail) ? (
+                  <Button disabled variant="success">Applied</Button>
+                ) : (
+                  <Button type="submit" variant="primary">
+                    Submit
+                  </Button>
+                )
+              }
+
             </Modal.Footer>
           </Form>
         </Modal.Body>
