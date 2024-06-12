@@ -58,9 +58,14 @@ function ApplicationModal({ company, jobSeeker }) {
       })
       .catch(error => {
         console.error('Error submitting application:', error);
-      })
-      .finally(setLoading(false))
+      });
   };
+
+  // Check for job seeker's email in company data
+  const indSeeker = jobSeeker.email;
+  const jobSeekersWhoAppliedForComp = company.job_seekers.map(seeker => seeker.email);
+  const foundEmail = jobSeekersWhoAppliedForComp.find(email => email === indSeeker);
+
 
 
   return (
