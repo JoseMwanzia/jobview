@@ -67,6 +67,11 @@ function ApplicationModal({ company, jobSeeker }) {
   const foundEmail = jobSeekersWhoAppliedForComp.find(email => email === indSeeker);
 
 
+  // useEffect(() => {
+  //   if (foundEmail) {
+  //     console.log("APPLICANT EMAIL :=>", foundEmail);
+  //   }
+  // }, [foundEmail]);
 
   return (
     <>
