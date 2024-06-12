@@ -75,9 +75,12 @@ function ApplicationModal({ company, jobSeeker }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Apply
-      </Button>
+    {jobSeekersWhoAppliedForComp.includes(foundEmail) ? (
+      <Button disabled variant="success">Applied</Button>
+    ) : (
+      <Button variant="primary" onClick={handleShow}>Apply</Button>
+    )
+  }
 
       <Modal key={company.id} show={show} onHide={handleClose} backdrop="static">
         <Modal.Header closeButton>
