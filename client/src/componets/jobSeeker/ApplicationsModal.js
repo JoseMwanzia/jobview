@@ -5,8 +5,6 @@ import Modal from 'react-bootstrap/Modal';
 
 function ApplicationModal({ company, jobSeeker }) {
   const fileInputRef = useRef(null);
-  // const [fileInput, setFileInput] = useState(null);
-  const [resumeData, setResumeData] = useState({});
 
   const [application, setApplication] = useState({
     name: '', email: '', address: '', phone: '', resume: ''
