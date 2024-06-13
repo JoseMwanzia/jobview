@@ -1,4 +1,6 @@
 class ApplicationsController < ApplicationController
+  before_action :authorize_company_or_jobSeeker
+  
     def index
       if params[:job_seeker_id]
         job_seeker = JobSeeker.find(params[:job_seeker_id])
@@ -43,5 +45,19 @@ class ApplicationsController < ApplicationController
   
     def application_params
       params.require(:application).permit(:job_seeker_id, :company_id, :name, :email, :address, :phone, :resume)
+    end
+
+    def authorize_company_or_jobSeeker
+      unless authorize_company || authorize_jobseeker
+        render json: {errors: "Not Logged In!!"}, status: 422
+      end
+    end
+
+    def authorize_company
+      @company_user = Company.find_by(id: session[:company_id])
+    end
+
+    def authorize_jobseeker
+      @jobSeeker_user = JobSeeker.find_by(id: session[:job_seeker_id])
     end
 end
