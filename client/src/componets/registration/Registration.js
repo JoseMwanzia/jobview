@@ -5,7 +5,6 @@ import Logout from "../LoginAndLogout/Logout";
 function Registration() {
     
     const [isChecked, setIsChecked] = useState(false)
-    const [data, setdata] = useState([])
 
     const [companyData, setCompanyData] = useState({
         company_name:"",
@@ -13,7 +12,7 @@ function Registration() {
         password: "",
         password_confirmation: ""
     });
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState([]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -35,16 +34,12 @@ function Registration() {
             },
             body: JSON.stringify(companyData)
           });
-          console.log( companyData.company_name, companyData.email, companyData.password, companyData.password_confirmation );
-          const data = await response.json();
-          console.log(data.company_name);
-          // setdata(data);
 
-          if (data.id === window.sessionData) {
+          const data = await response.json();
+          if (data.errors === undefined) {
               return window.location.href = "/companyDashboard";
-            } else  {
-              window.location.href = "/login";
-            }
+            } 
+            setErrors(data.errors)
         }
         catch (error) {setErrors(error);}
       };
@@ -60,28 +55,26 @@ function Registration() {
 
                     <label htmlFor="company_name"><b>Company Name</b></label>
                     <input type="text" id="company_name" name="company_name" value={companyData.company_name} onChange={handleInputChange} placeholder="Company Name" className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.company_name ? 'Company Name ' + errors.company_name : null}</p>
 
                     <label htmlFor="email"><b>Email</b></label>
-                    <input type="text" id="email" name="email" value={companyData.email} onChange={handleInputChange} className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${errors.email ? "border-red-500" : "" }`} placeholder="Email address" />
-                    {/* <input type="text" placeholder="Enter Email" value={companyData.email} onChange={handleInputChange} name="email" required/> */}
+                    <input type="text" id="email" name="email" value={companyData.email} onChange={handleInputChange} className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500`} placeholder="Email address" />
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.email ? 'Email ' + errors.email : null}</p>
+                    
 
                     <label htmlFor="password"><b>Password</b></label>
-                    <input type="password" id="password" value={companyData.password} onChange={handleInputChange} placeholder="Enter Password" name="password" className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${errors.password ? "border-red-500" : "" }`}/>
+                    <input type="password" id="password" value={companyData.password} onChange={handleInputChange} placeholder="Enter Password" name="password" className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500`}/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.password ? 'Password ' + errors.password : null}</p>
 
                     <label htmlFor="repeat-password"><b>Repeat Password</b></label>
-                    <input type="password" id="password_confirmation" name="password_confirmation" value={companyData.password_confirmation} onChange={handleInputChange} className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${ errors.password_confirmation ? "border-red-500" : "" }`} placeholder="Confirm Password"/>
+                    <input type="password" id="password_confirmation" name="password_confirmation" value={companyData.password_confirmation} onChange={handleInputChange} className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500`} placeholder="Confirm Password"/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.password_confirmation ? 'Password Confirmation ' + errors.password_confirmation : null}</p>
 
                     <div className="d-flex flex-wrap">
 
                         <p className="col-12">Are you seekings a <Link to="/loginJobSeeker">Job instead</Link>?</p>
                         <p className="col-12">Already have an account <Link to="/login">Login</Link>?</p>
 
-                        {/* <label className="col-12">Are you Employing or seekings a Job</label>
-                        <select id="registrationType" name="registrationType" value={companyData.value} onChange={handleInputChange} className="m-3">
-                            <option value="select" disabled className="text-muted">_ _select</option>
-                            <option value="company">Company</option>
-                            <option value="candidate">Candidate</option>
-                        </select> */}
                     </div>
 
                     <label>

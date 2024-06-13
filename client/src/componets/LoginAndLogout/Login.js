@@ -57,7 +57,6 @@ function Login() {
                         onChange={handleInputChange}
                         className={`col-12 w-full px-3 py-2 rounded-lg focus:outline-none focus:ring-2`}
                         placeholder="Enter your email"
-                        required
                         />
 
                 <label htmlFor="password" className="block mb-2 font-medium"></label>
@@ -69,10 +68,9 @@ function Login() {
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 rounded-lg focus:outline-none focus:ring-2 "
                         placeholder="Enter your password"
-                        required
                         />
 
-                <p className="col-md-6 text-warning font-weight-bold">{errors}</p>
+                <p className="col-md-6 text-danger font-weight-bold">{errors}</p>
                 <button type="submit" className="col-3 butns">
                     Login
                 </button>
