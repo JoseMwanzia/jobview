@@ -15,7 +15,7 @@ import Logout from '../LoginAndLogout/Logout';
 
 
 
-function JobSeekerDashboard({jobSeeker, companyUser}) {
+function JobSeekerDashboard({jobSeeker, companyUser, loading}) {
 // console.log(jobSeeker);
   return (
     <div style={{height: '1000px'}}>
@@ -86,7 +86,7 @@ function JobSeekerDashboard({jobSeeker, companyUser}) {
         </Container>
       </Navbar>
 
-      <JobCard jobSeeker={jobSeeker} companyUser={companyUser}/>
+      <JobCard jobSeeker={jobSeeker} companyUser={companyUser} loading={loading}/>
     </div>
   )
 }

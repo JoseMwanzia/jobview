@@ -28,7 +28,7 @@ function ApplicationModal({ company, jobSeeker }) {
     if (fileInputRef.current && fileInputRef.current.files[0]) {
       formPayload.append('application[resume]', fileInputRef.current.files[0]);
       console.log("Resume file appended:", fileInputRef.current.files[0].name);
-    }else {
+    } else {
       console.error('NO RESUME file uploaded!');
     }
 
@@ -94,9 +94,7 @@ function ApplicationModal({ company, jobSeeker }) {
                 name="name"
                 value={application.name}
                 onChange={handleInputChange}
-                
               />
-
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
@@ -104,9 +102,7 @@ function ApplicationModal({ company, jobSeeker }) {
                 name="email"
                 value={application.email}
                 onChange={handleInputChange}
-                
               />
-
               <Form.Label>Address</Form.Label>
               <Form.Control
                 type="text"
@@ -114,9 +110,7 @@ function ApplicationModal({ company, jobSeeker }) {
                 name="address"
                 value={application.address}
                 onChange={handleInputChange}
-                
               />
-
               <Form.Label>Phone</Form.Label>
               <Form.Control
                 type="number"
@@ -124,16 +118,13 @@ function ApplicationModal({ company, jobSeeker }) {
                 name="phone"
                 value={application.phone}
                 onChange={handleInputChange}
-                
               />
-
               <Form.Label className="mt-2">Upload Resume</Form.Label>
               <Form.Control
                 type="file"
                 accept=".pdf, .docx, .doc"
                 name="resume"
                 ref={fileInputRef}
-                
               />
               <small>Accepted file types: pdf, docx, doc</small>
             </Form.Group>

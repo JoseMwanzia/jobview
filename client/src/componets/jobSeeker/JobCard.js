@@ -4,7 +4,7 @@ import { formatDistanceToNow, parseISO } from 'date-fns';
 
 import ApplicationsModal from './ApplicationsModal';
 
-function JobCard({jobSeeker, companyUser}) {
+function JobCard({jobSeeker, companyUser, loading}) {
   // const [job_seeker, setJob_seeker] = useState([jobSeeker])
   // const [companies, setCompanies] = useState(companyUser)
   // console.log(companyUser);
@@ -37,7 +37,7 @@ if (!jobSeeker || jobSeeker.length === 0) {
                     With supporting text below as a natural lead-in to additional content.
                 </Card.Text>
               
-                <ApplicationsModal company={company} jobSeeker={jobSeeker}/>
+                <ApplicationsModal company={company} jobSeeker={jobSeeker} loading={loading}/>
 
             </Card.Body>
             <Card.Footer className="text-muted">Job Posted {formatDistanceToNow(parseISO(company.created_at))} ago</Card.Footer>

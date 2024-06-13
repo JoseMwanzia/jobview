@@ -23,7 +23,7 @@ function CompanyDashboard({myCompany, loading, companyUser}) {
   if (!myCompany || myCompany.length === 0) {
     return <p>No data available</p>;
   }
-console.log(myCompany);
+
   return (
     <div style={{height: '1000px'}}>
       <Navbar expand="lg" collapseOnSelect fixed='top' bg="dark" data-bs-theme="dark"  className="bg-body-tertiary">
