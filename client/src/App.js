@@ -16,6 +16,7 @@ function App() {
   const [companyUser, setCompanyUser] = useState([])
   const [jobSeeker, setJobSeeker] = useState([])
   const [loading, setLoading] = useState(true); // Initialize loading state
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     // all companies to jobseeker
@@ -28,19 +29,20 @@ function App() {
 
   useEffect(() => {
     // keep company logged in
-    const api = async () => {
-      try {
-      const response = await fetch('/my_company')
-      const data = await response.json()
-      setMyCompany(data);
-    }
-    catch (error) {
-    console.error('Error fetching data:', error);
-  } finally {
-    setLoading(false) //Set loading to false after fetch completes
-  }}
-    api()
+      fetch('/my_company')
+      .then(response => response.json())
+      .then(data => {
+        setMyCompany(data)
+        setLoading(false);
+  })
+      .catch (error => {
+        setError(error);
+        setLoading(false);}
+      )
+
   }, [])
+
+  
 
   useEffect(() => {
     // keep jobseeker logged in
@@ -49,6 +51,13 @@ function App() {
       res.json().then(data => { setJobSeeker(data)})}
     })
   }, [])
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   if (!jobSeeker ) {
     return <Login/>
