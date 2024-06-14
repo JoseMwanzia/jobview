@@ -17,7 +17,7 @@ function Applicants({myCompany, loading, companyUser}) {
 
   const seekers = myCompany.job_seekers.map((seeker, index) => {
     return (
-      <Card key={index} className="text-center col-lg-6 col-md-6 mb-4" >
+      <Card key={index} className="text-center col-lg-6 col-md-6 m-3 " >
         <Card.Header>{seeker.first_name}</Card.Header>
         <Card.Body>
           <Card.Title>{seeker.email}</Card.Title>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import logo from '../../assets/imgLogo.png';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import LandingPage from './LandingPage';
 import Applicants from './Applicants';
 import Logout from '../LoginAndLogout/Logout';
+import CreateJobsForm from './CreateJobsForm';
 
 
 function CompanyDashboard({myCompany, loading, companyUser}) {
@@ -95,6 +96,7 @@ function CompanyDashboard({myCompany, loading, companyUser}) {
       </Navbar>
 
       <LandingPage/>
+      <CreateJobsForm/>
       <Applicants myCompany={myCompany} loading={loading} companyUser={companyUser}/>
     </div>
   )
