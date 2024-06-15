@@ -34,7 +34,7 @@ function CompanyDashboard({myCompany, loading, companyUser}) {
             <Link to='/'>
               <Image src={logo} rounded style={{width: "25%", aspectRatio: "3/2", objectFit: 'contain'}} />
             </Link>
-            <div className='me-5 text-white'>Welcome, {myCompany.company_name} ! </div>
+            <div className='me-5 text-white'>Welcome, {myCompany.company_name}! </div>
           </Col>
           <Navbar.Toggle aria-controls="navbarScroll" />
 
@@ -98,6 +98,7 @@ function CompanyDashboard({myCompany, loading, companyUser}) {
       <LandingPage/>
       <CreateJobsForm/>
       <Applicants myCompany={myCompany} loading={loading} companyUser={companyUser}/>
+      
     </div>
   )
 }
