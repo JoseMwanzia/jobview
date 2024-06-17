@@ -9,7 +9,7 @@ validates :name, :email, :address, :phone, presence: true
     Rails.application.routes.url_helpers.url_for(resume) if resume.attached?
   end
 
-  validates :name, :email, :address, :phone, presence: true
+
 
   
 end
