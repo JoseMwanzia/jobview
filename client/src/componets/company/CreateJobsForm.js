@@ -93,7 +93,7 @@ function CreateJobsForm({ show }) {
                         </Form.Group>
 
                         <Button variant="primary" type="submit">
-                            Submit
+                            Post Job
                         </Button>
                     </Form>
                 </Card.Body>
