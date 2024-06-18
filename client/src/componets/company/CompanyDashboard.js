@@ -96,7 +96,7 @@ function CompanyDashboard({myCompany, loading, companyUser}) {
       </Navbar>
 
       <LandingPage/>
-      <CreateJobsForm/>
+      <CreateJobsForm myCompany={myCompany}/>
       <Applicants myCompany={myCompany} loading={loading} companyUser={companyUser}/>
       
     </div>

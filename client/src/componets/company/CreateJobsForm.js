@@ -10,10 +10,7 @@ import Card from 'react-bootstrap/Card';
 import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css';
 
-function CreateJobsForm({ show }) {
-
-    const PINK = 'rgba(255, 192, 203, 0.6)';
-    const BLUE = 'rgba(0, 0, 255, 0.6)';
+function CreateJobsForm({ show, myCompany }) {
   const quillRefs = {
     jobDescription: useRef(null),
     responsibilities: useRef(null),
