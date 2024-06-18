@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_09_204127) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_17_233936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,8 +78,28 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_09_204127) do
     t.string "password_digest", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "department"
+    t.string "jobDescription"
+    t.string "responsibilities"
+    t.string "qualifications"
+    t.string "skills"
+    t.string "bonusSkills"
+    t.string "experience"
+    t.string "location"
+    t.string "jobType"
+    t.string "remote"
+    t.string "comments"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_posts_on_company_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "companies"
   add_foreign_key "applications", "job_seekers"
+  add_foreign_key "posts", "companies"
 end
