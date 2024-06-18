@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   #   resources :applications, only: [:index, :create, :show]
   # end
 
-  post '/companies/:company_id/applications', to: 'applications#create'
+  get '/posts', to: 'posts#index'
+  post '/posts/:company_id', to: 'posts#create'
 
   resources :applications, only: [:index, :show, :destroy]
 end
