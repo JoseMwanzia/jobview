@@ -44,7 +44,7 @@ class ApplicationsController < ApplicationController
     private
   
     def application_params
-      params.require(:application).permit(:job_seeker_id, :company_id, :name, :email, :address, :phone, :resume)
+      params.require(:application).permit(:job_seeker_id, :company_id, :post_id, :name, :email, :address, :phone, :resume)
     end
 
     def authorize_company_or_jobSeeker

@@ -23,6 +23,8 @@ function ApplicationModal({ company, jobSeeker }) {
     event.preventDefault();
 
     const formPayload = new FormData();
+    const post_id = post.id
+    formPayload.append('application[post_id]', post_id)
 
     // Ensure the file input is not null
     if (fileInputRef.current && fileInputRef.current.files[0]) {
