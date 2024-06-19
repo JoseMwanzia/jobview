@@ -9,14 +9,8 @@ class PostsController < ApplicationController
     # post '/posts'
     def create
         company = Company.find(params[:company_id])
-        post = company.posts.new(posts_params)
-        if post.save
-            # post = company.posts.create!(posts_params)
-            # byebug
-            render json: post, status: 201
-        else
-            render json: { error: "Company not found" }, status: 422
-        end
+        post = company.posts.create!(posts_params)
+        render json: post, status: 201
     end
 
     private
