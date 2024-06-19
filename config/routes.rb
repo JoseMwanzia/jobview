@@ -28,9 +28,10 @@ Rails.application.routes.draw do
     resources :applications, only: [:index, :create]
   end
 
-  # resources :companies do
-  #   resources :applications, only: [:index, :create, :show]
-  # end
+  resources :companies do
+    resources :applications, only: [:index, :create, :show]
+    resources :posts, only: [:index, :create, :show]
+  end
 
   get '/posts', to: 'posts#index'
   post '/posts/:company_id', to: 'posts#create'
