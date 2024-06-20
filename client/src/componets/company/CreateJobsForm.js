@@ -11,6 +11,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function CreateJobsForm({ show, myCompany }) {
+  const [errors, setErrors] = useState('');
   const [success, setSuccess] = useState('');
 
   const quillRefs = {
@@ -86,6 +87,8 @@ function CreateJobsForm({ show, myCompany }) {
         setErrors(data.errors)
       }
     }
+    catch (errors) {console.error(errors)}
+  };
 
   return (
     <>
@@ -101,36 +104,43 @@ function CreateJobsForm({ show, myCompany }) {
                   <Form.Group as={Col} controlId="title">
                     <Form.Label>Job Title:<span className="text-danger">*</span></Form.Label>
                     <Form.Control name='title' value={jobPostings.title} onChange={(e) => handleInputChange(e.target.value, 'title')} rows={1} as='textarea' placeholder="Job Title" />
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.title ? 'Job Title ' + errors.title : null}</p>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="department">
                     <Form.Label>Department:<span className="text-danger">*</span></Form.Label>
                     <Form.Control name='department' value={jobPostings.department} onChange={(e) => handleInputChange(e.target.value, 'department')} rows={1} as='textarea' placeholder="Department" />
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.department ? 'Department ' + errors.department : null}</p>
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="Description">
                     <Form.Label>Job Description:<span className="text-danger">*</span></Form.Label>
                     <ReactQuill ref={quillRefs.jobDescription} name='Description' value={jobPostings.jobDescription} onChange={(value) => handleInputChange(value, 'jobDescription')} placeholder='Write Job Description here' theme='snow'/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.jobDescription ? 'Job Description ' + errors.jobDescription : null}</p>
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="Responsibilities">
                     <Form.Label>Key Responsibilities:<span className="text-danger">*</span></Form.Label>
                     <ReactQuill ref={quillRefs.responsibilities} name='Responsibilities' value={jobPostings.responsibilities} onChange={(value) => handleInputChange(value, 'responsibilities')} placeholder='Write the key responsibilities for the candidate here' theme='snow'/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.responsibilities ? 'Key Responsibilities ' + errors.responsibilities : null}</p>
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Qualifications:<span className="text-danger">*</span></Form.Label>
                     <ReactQuill ref={quillRefs.qualifications} value={jobPostings.qualifications} onChange={(value) => handleInputChange(value, 'qualifications')} placeholder='Write Qualifications needed here' theme='snow'/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.qualifications ? 'Qualifications ' + errors.qualifications : null}</p>
                   </Form.Group><br/>
 
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Skills:</Form.Label>
                     <ReactQuill ref={quillRefs.skills} value={jobPostings.skills} onChange={(value) => handleInputChange(value, 'skills')} placeholder='Write Skills required here' theme='snow'/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.skills ? 'Skills ' + errors.skills : null}</p>
                   </Form.Group><br/>
 
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Nice to Have:</Form.Label>
                     <ReactQuill ref={quillRefs.bonusSkills} value={jobPostings.bonusSkills} onChange={(value) => handleInputChange(value, 'bonusSkills')} placeholder='Write Nice to Have here' theme='snow'/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.bonusSkills ? 'Bonus Skills ' + errors.bonusSkills : null}</p>
                   </Form.Group><br/>
 
                   <Form.Group as={Col} controlId="formGridZip">
@@ -141,11 +151,13 @@ function CreateJobsForm({ show, myCompany }) {
                       <option value="mid">Mid-level</option>
                       <option value="senior">Senior-level</option>
                     </Form.Select>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.experience ? 'Experience ' + errors.experience : null}</p>
                   </Form.Group><br/>
 
                   <Form.Group className="mb-3" controlId="formGridAddress1">
                     <Form.Label>Job Location:<span className="text-danger">*</span></Form.Label>
                     <Form.Control value={jobPostings.location} onChange={(e) => handleInputChange(e.target.value, 'location')} rows={1} as='textarea' placeholder="Job Location" />
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.location ? 'Location ' + errors.location : null}</p>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formGridAddress2">
@@ -158,6 +170,7 @@ function CreateJobsForm({ show, myCompany }) {
                       <option value="temporary">Temporary</option>
                       <option value="internship">Internship</option>
                     </Form.Select>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.jobType ? 'Job Type ' + errors.jobType : null}</p>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formGridAddress2">
@@ -167,11 +180,13 @@ function CreateJobsForm({ show, myCompany }) {
                       <option value="remote">Remote</option>
                       <option value="hybrid">Hybrid</option>
                     </Form.Select>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.remote ? 'Remote ' + errors.remote : null}</p>
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Additional comments:</Form.Label>
                     <ReactQuill ref={quillRefs.comments} value={jobPostings.comments} onChange={(value) => handleInputChange(value, 'comments')} theme='snow' placeholder='Put additional comments here!'/>
+                    <p className="col-md-6 text-danger font-weight-bold">{errors.comments ? 'Additional Comments ' + errors.comments : null}</p>
                   </Form.Group>
 
                   <Form.Group className="my-3" id="formGridCheckbox">
