@@ -11,6 +11,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function CreateJobsForm({ show, myCompany }) {
+  const [success, setSuccess] = useState('');
+
   const quillRefs = {
     jobDescription: useRef(null),
     responsibilities: useRef(null),
@@ -60,20 +62,30 @@ function CreateJobsForm({ show, myCompany }) {
     setJobPostings({ ...jobPostings, [name]: value });
   };
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const company_id = myCompany.id;
 
-    fetch(`/posts/${company_id}`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(jobPostings, { company_id })
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-    });
-  }
+    try {
+      const response = await fetch(`/posts/${company_id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jobPostings, { company_id })
+      });
+
+      const data = await response.json()
+
+      if (data.errors === undefined) {
+        console.log(data);
+        setSuccess('Job Successfully Posted!')
+        setErrors('')
+      } else {
+        console.log(data.errors);
+        setErrors(data.errors)
+      }
+    }
 
   return (
     <>
@@ -166,9 +178,11 @@ function CreateJobsForm({ show, myCompany }) {
                     <Form.Check type="checkbox" label="Check me out" />
                   </Form.Group>
 
-                  <Button variant="primary" type="submit" onClick={handleSubmit}>
+                  {success ? (<Button variant="success" disabled>
+                    {success}
+                  </Button>) : <Button variant="primary" type="submit" onClick={handleSubmit}>
                     Post Job
-                  </Button>
+                  </Button>}
                 </Form>
               </Card.Body>
             </Accordion.Collapse>
