@@ -7,4 +7,6 @@ class JobSeeker < ApplicationRecord
 
     has_many :applications
     has_many :companies, through: :applications
+
+    has_many :posts, through: :applications
 end

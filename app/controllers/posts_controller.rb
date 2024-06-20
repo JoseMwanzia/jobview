@@ -23,7 +23,6 @@ class PostsController < ApplicationController
         :location,
         :jobType,
         :remote,
-        :comments,
-        :company_id)
+        :comments)
     end
 end
