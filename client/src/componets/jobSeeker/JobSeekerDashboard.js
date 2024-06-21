@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import logo from '../../assets/imgLogo.png';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -17,6 +17,12 @@ import Logout from '../LoginAndLogout/Logout';
 
 function JobSeekerDashboard({jobSeeker, companyUser, loading}) {
 // console.log(jobSeeker);
+  const [open, setOpen] = useState(null);
+
+  const handleToggle = (id) => {
+    setOpen(open === id ? null : id);
+  };
+
   return (
     <div style={{height: '1000px'}}>
       <Navbar expand="lg" collapseOnSelect fixed='top' className="bg-body-tertiary">
@@ -86,7 +92,7 @@ function JobSeekerDashboard({jobSeeker, companyUser, loading}) {
         </Container>
       </Navbar>
 
-      <JobCard jobSeeker={jobSeeker} companyUser={companyUser} loading={loading}/>
+      <JobCard open={open} onHandleToggle={handleToggle} jobSeeker={jobSeeker} companyUser={companyUser} loading={loading}/>
     </div>
   )
 }
