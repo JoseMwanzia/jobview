@@ -6,6 +6,10 @@ import parse from 'html-react-parser';
 
 import ApplicationsModal from './ApplicationsModal';
 import JobDescription from './JobDescription';
+
+function JobCard({jobSeeker, companyUser, loading, open, onHandleToggle}) {
+  
+
   const companyPost = companyUser.map((company) =>  (company.posts.map((post) => {
 
     
