@@ -19,7 +19,7 @@ import CreateJobsForm from './CreateJobsForm';
 function CompanyDashboard({myCompany, loading, companyUser}) {
 
   if (loading) {
-    return <h3>Loading...</h3>;
+    return <h3 className='text-center'>Loading...</h3>;
   }
   if (!myCompany || myCompany.length === 0) {
     return <p>No data available</p>;

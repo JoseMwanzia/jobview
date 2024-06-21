@@ -53,7 +53,7 @@ function App() {
   }, [])
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <h1 className='text-center'>Loading...</h1>;
   }
   if (error) {
     return <div>Error: {error.message}</div>;
