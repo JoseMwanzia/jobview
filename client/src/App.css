@@ -170,3 +170,9 @@ hr {
   position: relative;
   top: 100px;
 }
+
+.collapse-panel {
+  height: 83%;
+  top: 15vh;
+  background-color: #f9f9f9;
+}
