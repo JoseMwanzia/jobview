@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_17_233936) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_19_115951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,8 +51,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_17_233936) do
     t.string "email"
     t.string "address"
     t.string "phone"
+    t.bigint "post_id", null: false
     t.index ["company_id"], name: "index_applications_on_company_id"
     t.index ["job_seeker_id"], name: "index_applications_on_job_seeker_id"
+    t.index ["post_id"], name: "index_applications_on_post_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -101,5 +103,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_17_233936) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "companies"
   add_foreign_key "applications", "job_seekers"
+  add_foreign_key "applications", "posts"
   add_foreign_key "posts", "companies"
 end
