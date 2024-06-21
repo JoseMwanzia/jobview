@@ -1,8 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import { formatDistanceToNow, parseISO } from 'date-fns';
+import DOMPurify from 'dompurify';
+import parse from 'html-react-parser';
 
 import ApplicationsModal from './ApplicationsModal';
+import JobDescription from './JobDescription';
   const companyPost = companyUser.map((company) =>  (company.posts.map((post) => {
 
     
