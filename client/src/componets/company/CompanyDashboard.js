@@ -27,7 +27,7 @@ function CompanyDashboard({myCompany, loading, companyUser}) {
 
   return (
     <div style={{height: '1000px'}}>
-      <Navbar expand="lg" collapseOnSelect fixed='top' bg="dark" data-bs-theme="dark"  className="bg-body-tertiary">
+      <Navbar expand="lg" collapseOnSelect sticky='top' bg="dark" data-bs-theme="dark"  className="bg-body-tertiary">
         <Container fluid style={{width: "100%"}}>
 
           <Col xs={6} md={4}>
