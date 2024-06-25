@@ -98,6 +98,7 @@ function ApplicationModal({ company, jobSeeker, post }) {
                 value={application.name}
                 onChange={handleInputChange}
               />
+              <Form.Text className='text-danger'>{errors ? `Name ${errors.name}` : ''}</Form.Text><br/>
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
@@ -106,6 +107,7 @@ function ApplicationModal({ company, jobSeeker, post }) {
                 value={application.email}
                 onChange={handleInputChange}
               />
+              <Form.Text className='text-danger'>{errors ? `Email ${errors.email}` : ''}</Form.Text><br/>
               <Form.Label>Address</Form.Label>
               <Form.Control
                 type="text"
@@ -114,6 +116,7 @@ function ApplicationModal({ company, jobSeeker, post }) {
                 value={application.address}
                 onChange={handleInputChange}
               />
+              <Form.Text className='text-danger'>{errors ? `Address ${errors.address}` : ''}</Form.Text><br/>
               <Form.Label>Phone</Form.Label>
               <Form.Control
                 type="number"
@@ -122,6 +125,7 @@ function ApplicationModal({ company, jobSeeker, post }) {
                 value={application.phone}
                 onChange={handleInputChange}
               />
+              <Form.Text className='text-danger'>{errors ? `Phone ${errors.phone}` : ''}</Form.Text><br/>
               <Form.Label className="mt-2">Upload Resume</Form.Label>
               <Form.Control
                 type="file"
@@ -129,6 +133,7 @@ function ApplicationModal({ company, jobSeeker, post }) {
                 name="resume"
                 ref={fileInputRef}
               />
+              <Form.Text className='text-danger'>{cv ? `${cv}` : ''}</Form.Text><br/>
               <small>Accepted file types: pdf, docx, doc</small>
             </Form.Group>
             <Modal.Footer>
