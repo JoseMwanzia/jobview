@@ -74,12 +74,8 @@ function ApplicationModal({ company, jobSeeker, post }) {
 
   return (
     <>
-    {jobSeekersWhoAppliedForComp.includes(foundEmail) ? (
-      <Button disabled variant="success">Applied</Button>
-    ) : (
-      <Button variant="primary" onClick={handleShow}>Apply</Button>
-    )
-  }
+    {jobSeeker.posts.map(post => post.id).includes(post.id) ? <Button className='z-1' disabled variant="success">Applied</Button> : 
+      <Button variant="primary" className='z-1' onClick={handleShow}>Apply</Button>}
 
       <Modal key={company.id} show={show} onHide={handleClose} backdrop="static">
         <Modal.Header closeButton>
@@ -134,12 +130,16 @@ function ApplicationModal({ company, jobSeeker, post }) {
                 Close
               </Button>
 
-              {jobSeekersWhoAppliedForComp.includes(foundEmail) ? (
+              {applied ? (
                   <Button disabled variant="success">Applied</Button>
-                ) : (
-                  <Button type="submit" variant="primary">
-                    Submit
+                ) : (success ? (<Button type="submit" variant="success">
+                  {success}
                   </Button>
+                )
+                   :
+                  (<Button type="submit" variant="primary">
+                    Submit
+                  </Button>)
                 )
               }
 
