@@ -166,13 +166,24 @@ hr {
   }
 }
 
-.crd{
-  position: relative;
-  top: 100px;
-}
-
 .collapse-panel {
-  height: 83%;
+  bottom: 0;
   top: 15vh;
   background-color: #f9f9f9;
+  transition: 0.8s ease-in-out;
+}
+@media (max-width: 767px) {
+  .collapse-panel {
+    box-shadow: 0px -5px 20px rgb(0, 0, 0);
+    z-index: 9;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+.title:hover {
+  text-decoration: none !important;
+}
+
+.stickyBtns{
+  transition: 1s ease-in-out;
 }
