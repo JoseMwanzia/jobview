@@ -42,7 +42,7 @@ function ApplicationModal({ company, jobSeeker, post }) {
       formPayload.append('application[resume]', fileInputRef.current.files[0]);
       console.log("Resume file appended:", fileInputRef.current.files[0].name);
     } else {
-      console.error('NO RESUME file uploaded!');
+      setCv('RESUME file NOT uploaded!');
     }
 
     // Add other form data from application state
@@ -58,13 +58,19 @@ function ApplicationModal({ company, jobSeeker, post }) {
       method: 'POST',
       body: formPayload
     })
-      .then(response => response.json())
-      .then(data => {
-        if (data.id > 0) {
-          console.log(data.id);
-          setTimeout(() => {
-            handleClose()
-          }, 3000);
+      .then(response =>  {
+        if (response.ok) {
+          response.json().then(data => {
+            console.log(data);
+            setSuccess("You have Successfully Applied!");
+            setTimeout(() => {
+              handleClose()
+            }, 3000);
+        })
+        } else {
+          response.json().then(data => {
+            SetErrors(data);
+          })
         }
       })
       .catch(error => {
