@@ -83,9 +83,9 @@ function ApplicationModal({ company, jobSeeker, post }) {
     {jobSeeker.posts.map(post => post.id).includes(post.id) ? <Button className='z-1' disabled variant="success">Applied</Button> : 
       <Button variant="primary" className='z-1' onClick={handleShow}>Apply</Button>}
 
-      <Modal key={company.id} show={show} onHide={handleClose} backdrop="static">
+      <Modal key={company.id} show={show} onHide={handleClose} backdrop='static'>
         <Modal.Header closeButton>
-          <Modal.Title>Application for {company.company_name}</Modal.Title>
+          <Modal.Title>Application for <p className='text-dark text-decoration-underline d-inline'>{post.title}</p> <br/> <Button disabled className='btn-success'>at {company.company_name}</Button></Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
