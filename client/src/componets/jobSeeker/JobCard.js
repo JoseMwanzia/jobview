@@ -15,12 +15,12 @@ function JobCard({jobSeeker, companyUser, loading, open, onHandleToggle}) {
     
 
         return (
-          <Card key={post.id} className={`text-center col-lg-6 col-md-5 mb-4 mx-2 crd ${open === post.id ? 'border-3 border-primary' : '' }`}>
+          <Card key={post.id} className={`text-center col-lg-6 col-md-5 mb-4 mx-2 ${open === post.id ? 'border-2 border-primary' : '' }`}>
             <Card.Header>{company.company_name}</Card.Header>
             <Card.Body>
                 {/* <Card.Title><a href='' className='text-dark'>{post.title}</a></Card.Title> */}
                 {/* {console.log(post)} */}
-                <JobDescription  post={post} onToggle={() => onHandleToggle(post.id)} isOpen={open === post.id} company={company}/>
+                <JobDescription jobSeeker={jobSeeker}  post={post} onToggle={() => onHandleToggle(post.id)} isOpen={open === post.id} company={company}/>
 
                 <div>
                   {parse(DOMPurify.sanitize(post.jobDescription.slice(0, 300)+'...')) }
