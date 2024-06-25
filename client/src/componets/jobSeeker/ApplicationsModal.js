@@ -1,11 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function ApplicationModal({ company, jobSeeker }) {
+function ApplicationModal({ company, jobSeeker, post }) {
   const fileInputRef = useRef(null);
 
+  const [applied, setApplied] = useState(false)
+  const [success, setSuccess] = useState('')
+  const [errors, SetErrors] = useState()
+  const [cv, setCv] = useState()
   const [application, setApplication] = useState({
     name: '', email: '', address: '', phone: '', resume: ''
   });
