@@ -16,7 +16,14 @@ function ApplicationModal({ company, jobSeeker, post }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  
+  const handleShow = () => {
+    const post_ids = jobSeeker.posts.map(post => post.id);
+    const post_id = post.id;
+    
+    post_ids.includes(post_id) ? setApplied(true) : setApplied(false);
+    setShow(true);
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
