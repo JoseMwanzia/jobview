@@ -61,18 +61,6 @@ function ApplicationModal({ company, jobSeeker }) {
       });
   };
 
-  // Check for job seeker's email in company data
-  const indSeeker = jobSeeker.email;
-  const jobSeekersWhoAppliedForComp = company.job_seekers.map(seeker => seeker.email);
-  const foundEmail = jobSeekersWhoAppliedForComp.find(email => email === indSeeker);
-
-
-  // useEffect(() => {
-  //   if (foundEmail) {
-  //     console.log("APPLICANT EMAIL :=>", foundEmail);
-  //   }
-  // }, [foundEmail]);
-
   return (
     <>
     {jobSeekersWhoAppliedForComp.includes(foundEmail) ? (
