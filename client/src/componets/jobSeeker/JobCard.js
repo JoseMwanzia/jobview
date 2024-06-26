@@ -11,9 +11,6 @@ function JobCard({jobSeeker, companyUser, loading, open, onHandleToggle}) {
   
 
   const companyPost = companyUser.map((company) =>  (company.posts.map((post) => {
-
-    
-
         return (
           <Card key={post.id} className={`text-center col-lg-6 col-md-5 mb-4 mx-2 ${open === post.id ? 'border-2 border-primary' : '' }`}>
             <Card.Header>{company.company_name}</Card.Header>
