@@ -10,6 +10,7 @@ import LoginJobSeeker from './componets/LoginAndLogout/LoginJobSeeker';
 import Logout from './componets/LoginAndLogout/Logout';
 import InitialLanding from './componets/InitialLanding';
 import JobSeekerReg from './componets/registration/JobSeekerReg';
+import MyJobs from './componets/jobSeeker/MyJobs';
 
 function App() {
   const [myCompany, setMyCompany] = useState()
@@ -74,6 +75,7 @@ function App() {
           <Route path='/logout' element={<Logout/>}/>
           <Route path='/companyDashboard' element={<CompanyDashboard myCompany={myCompany} loading={loading} companyUser={companyUser}/>}/>
           <Route path='/jobSeekerDashboard' element={<JobSeekerDashboard jobSeeker={jobSeeker} companyUser={companyUser}/>}/>
+          <Route path='/myjobs' element={<MyJobs jobSeeker={jobSeeker} companyUser={companyUser}/>}/>
           <Route path='/example' element={<Example myCompany={myCompany} jobSeeker={jobSeeker}/>}/>
         </Routes>
       </div>
