@@ -27,14 +27,13 @@ function MyJobs({ jobSeeker, companyUser}) {
 
         {jobSeeker.posts.map((post) => {
             return (
-            <Card key={post.id} className='col-lg-5 col-md-5 m-3'>
+            <Card key={post.id} className={`col-lg-5 col-md-5 m-3 ${open === post.id ? "border-2 border-primary" : ''}`}>
                 <Card.Header as='h5'></Card.Header>
                 <Card.Body>
                     <AppliedJobs isOpen={open === post.id} onToggle={() => handleToggle(post.id)} post={post} />
                     <div>
                         {parse(DOMPurify.sanitize(post.jobDescription.slice(0, 200)+'...')) }
                     </div>
-                    <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
             )
