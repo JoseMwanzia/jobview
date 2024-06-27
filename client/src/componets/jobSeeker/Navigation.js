@@ -21,10 +21,9 @@ function Navigation({jobSeeker}) {
 
       
         <Col xs={6} md={4}>
-          <Link to='/companyDashboard'>
+          <Link to='/jobSeekerDashboard'>
             <Image src={logo} rounded style={{width: "25%", aspectRatio: "3/2", objectFit: 'contain'}} />
           </Link>
-          <div className='me-5'>Welcome, {jobSeeker.first_name}</div>
         </Col>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -34,7 +33,7 @@ function Navigation({jobSeeker}) {
             className="me-auto my-2 my-lg-0"
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="/jobSeekerDashboard">Home</Nav.Link>
             <Nav.Link href="/myJobs">My Jobs</Nav.Link>
 
             <NavDropdown title="Employers" id="navbarScrollingDropdown">
