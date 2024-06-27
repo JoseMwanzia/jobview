@@ -1,4 +1,5 @@
 import React from 'react'
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function Logout({myCompany, jobSeeker}) {
 
@@ -18,7 +19,7 @@ function Logout({myCompany, jobSeeker}) {
     }
 
   return (
-    <button className='col-6' onClick={handleLogout}>Logout</button>
+    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
   )
 }
 

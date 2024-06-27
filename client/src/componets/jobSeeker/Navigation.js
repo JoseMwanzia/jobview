@@ -11,6 +11,8 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import Logout from '../LoginAndLogout/Logout';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function Navigation({jobSeeker}) {
   return (
@@ -75,10 +77,28 @@ function Navigation({jobSeeker}) {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
-            <Logout jobSeeker={jobSeeker}/>
           </Form>
         </Navbar.Collapse>
-      </Container>
+
+        {/* Use profile dropdown button */}
+        <Dropdown align={{ lg: "end"  }} className='m-1'>
+        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+        Welcome, {jobSeeker.first_name}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className='col-lg-3'>
+            <Dropdown.Item className='d-flex justify-content-center'>
+                <Col xs={3} md={3}>
+                    <Image src="https://" roundedCircle />
+                </Col>
+            </Dropdown.Item>
+            <Dropdown.Item  href='/userProfile'>Settings</Dropdown.Item>
+            <Dropdown.Divider />
+            <Logout jobSeeker={jobSeeker}/>
+        </Dropdown.Menu>
+        </Dropdown>
+
+      </Container>      
     </Navbar>
   )
 }
