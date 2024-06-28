@@ -45,13 +45,25 @@ function UserProfile({jobSeeker}) {
       formPayload.append('job_seeker[image]', imageUploader.current.files[0]);
       console.log("Image appended:", imageUploader.current.files[0].name);
     } 
-    // else {
-    //   setCv('RESUME file NOT uploaded!');
-    // }
 
+    const id = jobSeeker.id
     try {
-      const res = await axios.post('/job_seeker', formdata)
-      console.log(res);
+      fetch(`/job_seeker/${id}`, {
+      method: 'PUT',
+      body: formPayload
+    })
+      .then(response =>  {
+        if (response.ok) {
+          response.json().then(data => {
+            console.log(data);
+            
+        })
+        } else {
+          response.json().then(data => {
+            // SetErrors(data);
+          })
+        }
+      })
     } catch (error) {
       console.log(error);
     }
