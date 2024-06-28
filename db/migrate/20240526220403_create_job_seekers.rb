@@ -5,7 +5,7 @@ class CreateJobSeekers < ActiveRecord::Migration[7.0]
       t.string :sur_name, null: false
       t.string :last_name, null: false
       t.string :email, null: false
-      t.string :image_url
+      t.string :image
 
       t.timestamps
     end
