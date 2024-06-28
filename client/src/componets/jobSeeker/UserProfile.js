@@ -42,8 +42,8 @@ function UserProfile({jobSeeker}) {
     const formPayload = new FormData();
 
     if (imageUploader.current && imageUploader.current.files[0]) {
-      formPayload.append('application[resume]', imageUploader.current.files[0]);
-      console.log("Resume file appended:", imageUploader.current.files[0].name);
+      formPayload.append('job_seeker[image]', imageUploader.current.files[0]);
+      console.log("Image appended:", imageUploader.current.files[0].name);
     } 
     // else {
     //   setCv('RESUME file NOT uploaded!');
