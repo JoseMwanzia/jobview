@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/job_seeker', to: 'job_seekers#index'
   get '/job_seeker/:id', to: 'job_seekers#show'
   post '/job_seeker', to: 'job_seekers#create'
+  put '/job_seeker/:id', to: 'job_seekers#update'
 
   resources :job_seekers do
     resources :applications, only: [:index, :create]
