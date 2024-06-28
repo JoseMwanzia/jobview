@@ -26,10 +26,19 @@ class JobSeekersController < ApplicationController
         render json: job_seeker, status: 201
     end
 
+    # put '/job_seeker'
+    def update
+        job_seeker = JobSeeker.find(params[:id])
+        job_seeker.image.purge
+        job_seeker.image.attach(registration_params[:image])
+        # byebug
+        render json: job_seeker, status: 201
+    end
+
     private
 
     def registration_params
-        params.permit(:first_name, :sur_name, :last_name, :email, :password, :password_confirmation)
+        params.permit(:first_name, :sur_name, :last_name, :image, :email, :password, :password_confirmation)
     end
 
     def authorize
