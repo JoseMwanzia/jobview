@@ -11,7 +11,7 @@ import Collapse from 'react-bootstrap/Collapse';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 function UserProfile({jobSeeker}) {
-  const [formdata, setFormData] =useState({
+  const [formData, setFormData] =useState({
     image: ''
   })
   const uploadedImage = useRef(null)
@@ -67,8 +67,6 @@ function UserProfile({jobSeeker}) {
     } catch (error) {
       console.log(error);
     }
-    
-
   }
 
   return (
@@ -112,13 +110,14 @@ function UserProfile({jobSeeker}) {
                 </Button>
                 <Collapse in={open}>
 
-                  <Form.Group as={Row} className="mb-2" controlId="formPlaintextPassword">
+                  <Form.Group as={Row} className="mb-2">
                     
                     <InputGroup className="mb-3">
                       <Form.Control
                         placeholder="Current Password"
                         aria-label="current password"
                         type='password'
+                        id='currentPassword'
                       />
                     </InputGroup>
 
@@ -127,6 +126,7 @@ function UserProfile({jobSeeker}) {
                         placeholder="New Password"
                         aria-label="current password"
                         type='password'
+                        id='newPassword'
                       />
                     </InputGroup>
 
@@ -135,12 +135,13 @@ function UserProfile({jobSeeker}) {
                         placeholder="Confirm New Password"
                         aria-label="current password"
                         type='password'
+                        id='confirmNewPassword'
                       />
                     </InputGroup>
 
-                    <Button className='col-3' type='submit'>Submit</Button>
                   </Form.Group>
                 </Collapse>
+                    <Button className='col-3' type='submit'>Submit</Button>
               </div>
             </Form>
 
