@@ -1,9 +1,13 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 import { formatDistanceToNow, parseISO } from 'date-fns';
+// import Navigation from './Navigation';
 
-function Applicants({myCompany, loading, companyUser}) {
+function Applicants({myCompany, post, show, setShow, fullscreen, onHandleShow, loading}) {
+  const [data, setData] = useState({})
+    
 
   // Conditional rendering based on loading state and fetched data.
   // (VERY IMPORTANT IF YOU DONT WANT THE INITIAL 'undefined' RETURN VALUE FROM myCompany state)
@@ -14,26 +18,30 @@ function Applicants({myCompany, loading, companyUser}) {
     return <p>No data available</p>;
   }
 
-
-  const seekers = myCompany.job_seekers.map((seeker, index) => {
-    return (
-      <Card key={index} className="text-center col-lg-6 col-md-6 m-3 " >
-        <Card.Header>{seeker.first_name}</Card.Header>
-        <Card.Body>
-          <Card.Title>{seeker.email}</Card.Title>
-          <Card.Text>
-            With supporting text below as a natural lead-in to additional content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-        <Card.Footer className="text-muted">Applied {formatDistanceToNow(parseISO(seeker.created_at))} ago</Card.Footer>
-      </Card>
-    )
-  })
-
   return (
     <>
-      {seekers}
+      {/* {seekers} */}
+      <div className='d-inline'>
+        <Button className="me-2 mb-2" onClick={() => {onHandleShow(true);
+          if (!data) {
+            return <h4>Loading</h4>
+          }
+          setData(post);
+          console.log(post);
+        }}>
+          Show Applicants
+        </Button>
+      
+        <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>{post.title}</Modal.Title>
+            <Modal.Title><img /></Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+
+          </Modal.Body>
+        </Modal>
+      </div>
     </>
     )
   }
