@@ -187,3 +187,10 @@ hr {
 .stickyBtns{
   transition: 1s ease-in-out;
 }
+
+/* Change the color of the SVG icon on hover */
+.delete-button:hover .delete-icon {
+  fill: white; /* Change this to the color you want on hover */
+  animation: heartBeat; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
