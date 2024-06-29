@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   get '/posts', to: 'posts#index'
+  delete '/posts/:id', to: 'posts#destroy'
   post '/posts/:company_id', to: 'posts#create'
 
   resources :applications, only: [:index, :show, :destroy]

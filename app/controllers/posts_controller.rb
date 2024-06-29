@@ -12,6 +12,12 @@ class PostsController < ApplicationController
         post = company.posts.create!(posts_params)
         render json: post, status: 201
     end
+    # delete '/posts/:id'
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        head :no_content
+    end
 
     private
 
