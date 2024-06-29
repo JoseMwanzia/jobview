@@ -13,7 +13,7 @@ function LandingPage() {
                     <div className='col-lg-12'>
                         <div className='landingLogo'>
                             <div className="heading text-center">
-                                <h2 className="text-white">Find the job that fits your life</h2>
+                                <h2 className="text-white">Find the candidates that fits the job</h2>
                                 <p className="text-white px-3">
                                 Jobview is a true performance-based job board. Enjoy
                                 custom hiring products and access to up to 10,000 new resume
