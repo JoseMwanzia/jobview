@@ -13,6 +13,7 @@ function CreatedJobs({myCompany}) {
   const [open, setOpen] = useState(null);
   const [show, setShow] = useState(false);
   const [fullscreen, setFullscreen] = useState(true);
+  const [close, setClose] = useState(false);
 
   const handleToggle = (id) => {
     setOpen(open === id ? null : id);
@@ -29,6 +30,11 @@ function CreatedJobs({myCompany}) {
   function handleDelete(post_id) {
     fetch(`/posts/${post_id}`, {
       method: 'DELETE'
+    })
+    .then((res) => {
+      if (res.ok) {
+        setClose(true)
+      }
     })
   }
 
