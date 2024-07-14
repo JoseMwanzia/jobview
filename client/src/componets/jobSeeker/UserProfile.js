@@ -49,7 +49,7 @@ function UserProfile({jobSeeker}) {
     const id = jobSeeker.id
     try {
       fetch(`/job_seeker/${id}`, {
-      method: 'PUT',
+      method: 'POST',
       body: formPayload
     })
       .then(response =>  {
