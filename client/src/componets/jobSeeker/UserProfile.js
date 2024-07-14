@@ -20,21 +20,21 @@ function UserProfile({jobSeeker}) {
   const [open, setOpen] = useState(false);
 
    
-  function handleImageUpload(event) {
-    const [file] = event.target.files
-    if (file) {
-      const reader = new FileReader(); // reader constructor
+  // function handleImageUpload(event) {
+  //   const [file] = event.target.files
+  //   if (file) {
+  //     const reader = new FileReader(); // reader constructor
 
-      const {current} = uploadedImage; // current from the uploadedImage represents the img element
-      current.file = file;
+  //     const {current} = uploadedImage; // current from the uploadedImage represents the img element
+  //     current.file = file;
 
-      reader.onload = (e) => {
-          current.src = e.target.result;
-      } // attach an onload event listener to the reader we created which when loaded will attach the file url it will read to the img element
-      reader.readAsDataURL(file); // read the file as URL
-    }
-    // console.log(file);
-  }
+  //     reader.onload = (e) => {
+  //         current.src = e.target.result;
+  //     } // attach an onload event listener to the reader we created which when loaded will attach the file url it will read to the img element
+  //     reader.readAsDataURL(file); // read the file as URL
+  //   }
+  //   // console.log(file);
+  // }
 
   async function handleImage(e) {
     e.preventDefault();
