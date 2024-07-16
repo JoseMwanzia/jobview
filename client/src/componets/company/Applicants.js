@@ -11,8 +11,9 @@ function Applicants({myCompany, selectedPost, show, setShow, fullscreen}) {
   if (loading) {
     return <h3>Loading...</h3>;
   }
-  if (!myCompany || myCompany.length === 0) {
-    return <p>No data available</p>;
+
+  if (!selectedPost) {
+    return <h4>loading...</h4>;
   }
 
   return (
