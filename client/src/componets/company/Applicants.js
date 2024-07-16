@@ -8,8 +8,11 @@ function Applicants({myCompany, selectedPost, show, setShow, fullscreen}) {
 
   // Conditional rendering based on loading state and fetched data.
   // (VERY IMPORTANT IF YOU DONT WANT THE INITIAL 'undefined' RETURN VALUE FROM myCompany state)
-  if (loading) {
-    return <h3>Loading...</h3>;
+
+  function handleDeleteApplication(id) {
+    fetch(`/applications/${id}`, {
+      method: 'DELETE'
+    })
   }
 
   if (!selectedPost) {
