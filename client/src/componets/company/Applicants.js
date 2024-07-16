@@ -30,17 +30,23 @@ function Applicants({myCompany, selectedPost, show, setShow, fullscreen}) {
           Show Applicants
         </Button>
       
-        <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>{post.title}</Modal.Title>
-            <Modal.Title><img /></Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+        </Card.Body>
+        <Card.Footer className="text-muted">Applied {formatDistanceToNow(parseISO(application.created_at))} ago</Card.Footer>
+      </Card>
+    )
+  })
+  
 
-          </Modal.Body>
-        </Modal>
-      </div>
-    </>
+  return (
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>{selectedPost.title}</Modal.Title>
+          <Modal.Title></Modal.Title>
+        </Modal.Header>
+        <div className='d-flex flex-wrap justify-content-start col-sm-12'>
+          {applicantsCard}
+        </div>
+      </Modal>
     )
   }
 
