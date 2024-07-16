@@ -57,7 +57,7 @@ function CreatedJobs({ myCompany }) {
             Show Applicants
           </Button>
 
-          <ConfrimationPop handledelete={() => handleDelete(post.id)} close={close} />
+          <ConfrimationPop handledelete={() => handleDelete(post.id)} />
         </Card.Body>
       </Card>
     )

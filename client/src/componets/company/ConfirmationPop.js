@@ -3,13 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function ConfirmationPop({handledelete, close}) {
+function ConfirmationPop({handledelete}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(close);
   return (
     <>
       <Button onClick={handleShow} variant='outline-danger' className='m-1 delete-button'>
@@ -20,7 +19,7 @@ function ConfirmationPop({handledelete, close}) {
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>You are about to Delete this Job!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <h4>Are you sure?</h4>
