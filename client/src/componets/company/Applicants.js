@@ -1,13 +1,10 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
+import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { formatDistanceToNow, parseISO } from 'date-fns';
-// import Navigation from './Navigation';
 
-function Applicants({myCompany, post, show, setShow, fullscreen, onHandleShow, loading}) {
-  const [data, setData] = useState({})
-    
+function Applicants({myCompany, selectedPost, show, setShow, fullscreen}) {
 
   // Conditional rendering based on loading state and fetched data.
   // (VERY IMPORTANT IF YOU DONT WANT THE INITIAL 'undefined' RETURN VALUE FROM myCompany state)
