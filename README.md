@@ -28,11 +28,12 @@ Ensure that you are using postgresql version 15 on your local machine, you can i
 
 2. To run the client do the following
     - install dependenciens with `npm install --prefix client`
-    - run `npm start --prefix client` to start your client
 
 ## Usage
 
+To run the project, run `npm start --prefix client` to start your client
 
+![Screen Recording](src/assests/recording.gif)
 
 ## Contributing
 
