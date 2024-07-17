@@ -1,5 +1,5 @@
 
-![Gitea Last Commit](https://img.shields.io/gitea/last-commit/:JoseMwanzia/:jobview)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/JoseMwanzia/jobview)
 
 
 # Jobview
