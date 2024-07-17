@@ -40,5 +40,14 @@ To run the project, run `npm start --prefix client` to start your client
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
 
+You can create a pull request by
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b your-feature-name`.
+3. Make your changes.
+4. Push your branch: `git push origin your-feature-name`.
+5. Create a pull request.
+
 ## License
 
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
