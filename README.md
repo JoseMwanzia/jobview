@@ -1,3 +1,7 @@
+
+![Gitea Last Commit](https://img.shields.io/gitea/last-commit/:user/:repo)
+
+
 # Jobview
 
 Jobview is a web app that connects potential talents to people looking for talent online.
