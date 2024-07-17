@@ -13,15 +13,15 @@ The biggest challenge faced was building appropriate associations for the DB tab
 Ensure that you are using postgresql version 15 on your local machine, you can install it by `brew install postgresql@15`, on a Mac OS, if you are using brew, you can start the database by `brew services start postgresql`
 
 To run the server do the following: 
-    -clone the repository
-    -run `bundle install` to install the rails dependencies.
-    -run `rails db:create` to create your postgresql development database.
-    -then run `rails db:migrate` to do migrations of your schema.
-    -run `rails server` to start your rails backend serverand your good
+    - clone the repository
+    - run `bundle install` to install the rails dependencies.
+    - run `rails db:create` to create your postgresql development database.
+    - then run `rails db:migrate` to do migrations of your schema.
+    - run `rails server` to start your rails backend serverand your good
 
 To run the client do the following:
-    -install dependenciens with `npm install --prefix client`
-    -run `npm start --prefix client` to start your client
+    - install dependenciens with `npm install --prefix client`
+    - run `npm start --prefix client` to start your client
 
 ## Usage
 
