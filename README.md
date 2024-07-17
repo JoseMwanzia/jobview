@@ -1,5 +1,5 @@
 
-![Gitea Last Commit](https://img.shields.io/gitea/last-commit/:user/:repo)
+![Gitea Last Commit](https://img.shields.io/gitea/last-commit/:JoseMwanzia/:jobview)
 
 
 # Jobview
