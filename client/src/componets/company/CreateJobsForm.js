@@ -9,6 +9,7 @@ import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 import Card from 'react-bootstrap/Card';
 import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css';
+import CreatedJobs from './CreatedJobs';
 
 function CreateJobsForm({ show, myCompany }) {
   const [errors, setErrors] = useState('');
@@ -204,6 +205,8 @@ function CreateJobsForm({ show, myCompany }) {
           </Card>
         </div>
       </Accordion>
+
+      <CreatedJobs myCompany={myCompany}/>
     </>
   );
 }
