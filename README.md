@@ -33,7 +33,7 @@ Ensure that you are using postgresql version 15 on your local machine, you can i
 
 To run the project, run `npm start --prefix client` to start your client
 
-![Screen Recording](src/assests/recording.gif)
+![Screen Recording](client/src/assests/recording.gif)
 
 ## Contributing
 
