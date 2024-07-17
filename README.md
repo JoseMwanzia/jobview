@@ -14,9 +14,9 @@ Ensure that you are using postgresql version 15 on your local machine, you can i
 
 To run the server do the following: 
     - clone the repository
-    - run `bundle install` to install the rails dependencies.
-    - run `rails db:create` to create your postgresql development database.
-    - then run `rails db:migrate` to do migrations of your schema.
+    - run `bundle install` to install the rails dependencies
+    - run `rails db:create` to create your postgresql development database
+    - then run `rails db:migrate` to do migrations of your schema
     - run `rails server` to start your rails backend serverand your good
 
 To run the client do the following:
