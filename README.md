@@ -2,6 +2,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/JoseMwanzia/jobview)
 ![GitHub contributors](https://img.shields.io/github/contributors/JoseMwanzia/jobview)
 ![GitHub forks](https://img.shields.io/github/forks/JoseMwanzia/jobview)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/JoseMwanzia/jobview)
 
 
 # Jobview
