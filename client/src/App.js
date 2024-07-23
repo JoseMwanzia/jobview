@@ -68,7 +68,7 @@ function App() {
     return (
       <div className='App'>
         <Routes>
-          <Route path='/' element={<InitialLanding/> }/>
+          <Route exact path='/' element={<InitialLanding/> }/>
           <Route path='/registration' element={<Registration/> }/>
           <Route path='/jobseekerReg' element={<JobSeekerReg/> }/>
           <Route path='/login' element={<Login/>}/>
