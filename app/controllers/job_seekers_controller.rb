@@ -26,11 +26,29 @@ class JobSeekersController < ApplicationController
         render json: job_seeker, status: 201
     end
 
+    # post '/job_seeker/:id'
+    def create_image
+        job_seeker = JobSeeker.find(params[:id])
+        # company = Company.find(params[:company_id])
+        # job_seeker.new(registration_params.except(:image))
+    
+        if job_seeker
+            # byebug
+          if registration_params[:image]
+            job_seeker.image.attach(registration_params[:image])
+          end
+          render json: job_seeker, status: :created
+        else
+          render json: job_seeker.errors, status: :unprocessable_entity
+        end
+      end
+
     # put '/job_seeker'
     def update
         job_seeker = JobSeeker.find(params[:id])
-        job_seeker.image.purge
-        job_seeker.image.attach(registration_params[:image])
+        job_seeker.update!(registration_params[:image])
+        # job_seeker.image.purge
+        # job_seeker.image.attach(registration_params[:image])
         # byebug
         render json: job_seeker, status: 201
     end
